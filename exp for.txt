@@ -1,0 +1,37 @@
+l1=[]
+l2=[]
+with open("a.txt","r") as f:
+     for line in f.readlines():
+         i,j=line.split("=")
+         l1.append(i)
+         l2.append(j)
+        
+dic=dict(zip(l1,l2))
+for k,v in dic.items():
+    print(k,"=",v)
+
+ 
+l3=[]
+l4=[]
+for i in l1:
+   if l1.count(i)>1:
+       if i not in l3:
+        l3.append(i)
+
+for j in l2:
+    if l2.count(j)>1:
+        if j not in l4:
+           l4.append(j)
+
+print("Duplicate keys:")
+print(l3)
+
+print("\n")
+print("Duplicate values:")
+print(l4)
+
+with open("b.txt","w") as f:
+
+    for k,v in dic.items():
+      f.write('%s=%s\n' % (k,v))
+    
